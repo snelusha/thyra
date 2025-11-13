@@ -1,0 +1,25 @@
+{
+  "name": "thyra",
+  "version": "2.0.1",
+  "description": "Simple project folder opener CLI",
+  "type": "module",
+  "bin": {
+    "thyra": "./bin/thyra.js"
+  },
+  "scripts": {
+    "lint": "echo \"add your linter here\"",
+    "test": "echo \"add your tests here\""
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "cli",
+    "projects",
+    "folders",
+    "shortcut",
+    "vscode"
+  ],
+  "author": "Uditha Vithanage",
+  "license": "MIT"
+}
