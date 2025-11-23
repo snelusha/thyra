@@ -1,20 +1,28 @@
+import { c, colorize, printCommandTable } from "~/color-logs";
+
 import type { ConfigStore } from "~/configStore";
 
-export function runList(store: ConfigStore): void {
+export function runList(store: ConfigStore) {
   const all = store.all();
   const keys = Object.keys(all);
 
   if (keys.length === 0) {
-    console.log("No folders saved yet.");
-    console.log("Use: thyra config <name> <folder_path>");
+    console.log(c.dim("No folders saved yet."));
+    console.log("Use: " + colorize("thyra config <name> <folder_path>"));
     return;
   }
 
   const rows = keys.map((key) => ({
-    Name: key,
-    Path: all[key],
+    Command: c.cyan(key),
+    Description: c.dim(all[key]),
   }));
 
-  console.log("\nSaved folders:\n");
-  console.table(rows);
+  console.log("\n" + c.bold("Saved folders:\n"));
+
+  printCommandTable(rows, {
+    header: {
+      Command: "Name",
+      Description: "Path",
+    },
+  });
 }
