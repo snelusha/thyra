@@ -6,6 +6,11 @@
     "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "package": ["package.json"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

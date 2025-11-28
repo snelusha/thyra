@@ -1,6 +1,7 @@
 import fs from "node:fs";
-import { openInEditor } from "../editor.js";
-import type { ConfigStore } from "../configStore.js";
+import { openInEditor } from "~/editor.js";
+
+import type { ConfigStore } from "~/configStore";
 
 function ensureDirectoryExists(folderPath: string): void {
   if (!fs.existsSync(folderPath)) {
@@ -25,7 +26,7 @@ export function runOpen(store: ConfigStore, args: string[]): void {
 
   if (!store.has(name)) {
     console.error(
-      `No folder found for name "${name}". Use 'thyra list' to see saved entries.`
+      `No folder found for name "${name}". Use 'thyra list' to see saved entries.`,
     );
     process.exit(1);
   }
@@ -35,7 +36,7 @@ export function runOpen(store: ConfigStore, args: string[]): void {
     console.error(`Invalid folder path for name "${name}".`);
     process.exit(1);
   }
-  
+
   ensureDirectoryExists(folderPath);
   openInEditor(folderPath);
 }

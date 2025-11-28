@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import type { ConfigStore } from "../configStore.js";
+
+import type { ConfigStore } from "~/configStore";
 
 function resolveFolderPath(inputPath: string): string {
   let folderPath = inputPath.replace(/^~(?=$|[\\/])/, os.homedir());

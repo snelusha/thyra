@@ -1,4 +1,4 @@
-import type { ConfigStore } from "../configStore.js";
+import type { ConfigStore } from "~/configStore";
 
 export function runList(store: ConfigStore): void {
   const all = store.all();
