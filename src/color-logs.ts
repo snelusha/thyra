@@ -1,13 +1,4 @@
-// Basic colors/styles
-export const c = {
-  reset: "\x1b[0m",
-  green: (s: string) => `\x1b[32m${s}\x1b[0m`,
-  cyan: (s: string) => `\x1b[36m${s}\x1b[0m`,
-  yellow: (s: string) => `\x1b[33m${s}\x1b[0m`,
-  bold: (s: string) => `\x1b[1m${s}\x1b[0m`,
-  underline: (s: string) => `\x1b[4m${s}\x1b[0m`,
-  dim: (s: string) => `\x1b[2m${s}\x1b[0m`,
-};
+import color from "picocolors";
 
 // Strip ANSI escape sequences (for width calc)
 export function stripAnsi(s: string) {
@@ -27,9 +18,9 @@ export function padRight(s: string, width: number) {
 
 export function colorize(cmd: string) {
   return cmd.replace(/thyra\b|--\S+|<[^>]+>/g, (tok) => {
-    if (tok === "thyra") return c.green(tok);
-    if (tok.startsWith("--")) return c.yellow(tok);
-    if (tok.startsWith("<")) return c.cyan(tok);
+    if (tok === "thyra") return color.green(tok);
+    if (tok.startsWith("--")) return color.yellow(tok);
+    if (tok.startsWith("<")) return color.cyan(tok);
     return tok;
   });
 }
@@ -66,7 +57,7 @@ export function printCommandTable(
     padRight(t1, w1) + sep + padRight(t2, w2);
 
   // header
-  console.log(c.bold(line(header.Command, header.Description)));
+  console.log(color.bold(line(header.Command, header.Description)));
   // separator
   console.log(padRight("-".repeat(w1), w1) + sep + "-".repeat(w2));
 

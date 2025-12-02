@@ -17,7 +17,7 @@ import { getConfigFilePath, ConfigStore } from "~/configStore";
     command === "--help" ||
     command === "-h"
   ) {
-    runHelp();
+    runHelp(0);
     return;
   }
   if (command === "version" || command === "--version" || command === "-v") {

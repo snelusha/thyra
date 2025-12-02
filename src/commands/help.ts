@@ -1,8 +1,10 @@
-import { c, colorize, printCommandTable } from "~/color-logs";
+import color from "picocolors";
+
+import { colorize, printCommandTable } from "~/color-logs";
 
 export function runHelp(exitCode: number) {
   console.log(
-    `\n${c.bold(c.cyan("thyra"))} ${c.dim(
+    `\n${color.bold(color.cyan("thyra"))} ${color.dim(
       "- Quick shortcut manager for project folders",
     )}\n`,
   );
@@ -24,15 +26,15 @@ export function runHelp(exitCode: number) {
   printCommandTable(rows);
 
   console.log(
-    `\n${c.bold(c.underline("Examples:"))}
-  ${colorize("thyra config <name> <folder_path>")}   ${c.dim("# Save a path")}
-  ${colorize("thyra open <name>")}                   ${c.dim(
+    `\n${color.bold(color.underline("Examples:"))}
+  ${colorize("thyra config <name> <folder_path>")}   ${color.dim("# Save a path")}
+  ${colorize("thyra open <name>")}                   ${color.dim(
     "# Open in editor",
   )}
   ${colorize("thyra --version")}
 
-${c.bold(c.underline("Environment:"))}
-  ${c.cyan("THYRA_EDITOR")}  ${c.dim('Editor command (default: "code")')}
+${color.bold(color.underline("Environment:"))}
+  ${color.cyan("THYRA_EDITOR")}  ${color.dim('Editor command (default: "code")')}
 `,
   );
 
